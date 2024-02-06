@@ -26,13 +26,31 @@
 </div>
  
 <script>
+  // event onload
   function welcome(){
     alert("Sim salabim muncullah elemen-elemen HTML!");
     const contens = document.querySelector('.contents');
     contens.removeAttribute('hidden')
   }
-
   document.body.onload = welcome();
+
+  // event onClick
+function increment(){
+  document.getElementById('count').innerText++;
+  
+  if(document.getElementById('count').innerText == 7){
+    const hiddenMessage = document.createElement('h4');
+    hiddenMessage.innerText = "Selamat! Anda menemukan hadiah tersembunyi...";
+    const img = document.createElement('img');
+    img.setAttribute('src','https://i.ibb.co/0V49VRZ/catto.jpg');
+    const contents = document.querySelector('.contents');
+    contents.appendChild(hiddenMessage).appendChild(img);
+  }
+}
+
+document.getElementById('incrementButton').onclick = increment;
+
+
 </script>
 </body>
 </html>

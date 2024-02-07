@@ -27,22 +27,30 @@
     </div>
     <script>
         // tulis kode kamu di sini
+
+        // buat event
         const changeCaption = new Event('changeCaption');
+
         window.addEventListener('load', function(){
             const tombol = document.getElementById('tombol');
+
             tombol.addEventListener('changeCaption', customEventHandler);
             tombol.addEventListener('click', function(){});
+
+            
+        tombol.addEventListener('click', function(){
+            tombol.dispatchEvent(changeCaption);
+            })
         })
 
         function customEventHandler(ev){
-            console.log('event' + ev.type + 'telah dijalankan');
-            const caption = document.getElementByid('caption');
+            console.log('event ' + ev.type + ' telah dijalankan');
+            const caption = document.getElementById('caption');
             caption.innerText = 'Anda telah membangkitkan custom event';
         }
 
         // fungsi dari customEventHandler memiliki 1 parameter yang bernama “ev”. Apa itu “ev”? Secara otomatis, parameter “ev” berisi obyek event (“ev” merupakan singkatan dari “event”). Dengan obyek ini, kita dapat memeroleh banyak informasi mengenai elemen yang terkait. Semua ini akan dilakukan secara otomatis oleh JavaScript.
 
-        
     </script>
 </body>
 

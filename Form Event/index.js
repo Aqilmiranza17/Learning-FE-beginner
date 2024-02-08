@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
         alert('Anda telah mem Paste sebuah Text...');
     });
     
-
+    console.log('hello world');
     
 });
 

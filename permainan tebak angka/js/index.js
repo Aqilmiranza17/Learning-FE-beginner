@@ -33,28 +33,33 @@ const sessionUserIsPlayingKey = 'SESSION_USER_IS_PLAYING';
 
 //inisialisasi key untuk local storage
 const localTotalVictoryKey = 'LOCAL_TOTAL_VICTORIES_PLAYED';
-const localMaximumAttemptsKey = 'LOCAL_MAXIMUM_ATTEMPTS'; 
+const localMaximumAttemptsKey = 'LOCAL_MAXIMUM_ATTEMPTS';
 
-window.addEventListener('load', function(){
-    if(typeof(Storage) !== 'undefined'){
+window.addEventListener('load', function () {
+    if (typeof (Storage) !== 'undefined') {
         // (MATERI 1)
         // inisialisasi semua item web storage yang kita akan gunakan jika belum ada
-        if(sessionStorage.getItem(sessionAnswerKey)=== null){
+        if (sessionStorage.getItem(sessionAnswerKey) === null) {
             sessionStorage.setItem(sessionAnswerKey, '');
         }
-        if (sessionStorage.getItem(sessionUserAttemptsKey)=== null){
+        if (sessionStorage.getItem(sessionUserAttemptsKey) === null) {
             sessionStorage.setItem(sessionUserAttemptsKey, 0);
         }
-        if (sessionStorage.getItem(sessionUserIsPlayingKey)=== null){
+        if (sessionStorage.getItem(sessionUserIsPlayingKey) === null) {
             sessionStorage.setItem(sessionUserIsPlayingKey, false);
         }
-        if (localStorage.getItem(localTotalVictoryKey)=== null){
+        if (localStorage.getItem(localTotalVictoryKey) === null) {
             localStorage.setItem(localTotalVictoryKey, 0);
         }
-        if (localStorage.getItem(localMaximumAttemptsKey)=== null){
+        if (localStorage.getItem(localMaximumAttemptsKey) === null) {
             localStorage.setItem(localMaximumAttemptsKey, 0);
         }
-    }else{
+    } else {
         alert('Browser yang anda gunakan tidak didukung');
     }
+
+    //inisialisasi semua nilai field pada dokumen yang menggunakan nilai dari web storage
+    sessionUserAttemptsField.innerText = sessionStorage.getItem(sessionUserAttemptsKey);
+    localTotalVictoryField.innerText = localStorage.getItem(localTotalVictoryKey);
+    localMaximumAttemptField.innerText = localStorage.getItem(localMaximumAttemptsKey);
 });

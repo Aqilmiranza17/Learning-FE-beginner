@@ -126,4 +126,13 @@ window.addEventListener('load', function () {
         sessionStorage.setItem(sessionUserAttemptsKey, 0);
         sessionUserAttemptsField.innerText = sessionStorage.getItem(sessionUserAttemptsKey);
     });
+
+    destroyDataButton.addEventListener('click', function(){
+        sessionStorage.removeItem(sessionAnswerKey);
+        sessionStorage.removeItem(sessionUserAttemptsKey);
+        sessionStorage.removeItem(sessionUserIsPlayingKey);
+        localStorage.removeItem(localTotalVictoryKey);
+        localStorage.removeItem(localMaximumAttemptsKey);
+        alert('Data ingin dihapus, mohon Refresh halaman ini');
+    });
 });
